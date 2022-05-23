@@ -344,7 +344,8 @@ function shouldContainInto (url, tab) {
     return false;
   }
 
-  let handleUrl = isGoogleURL(url) || (extensionSettings.allowlist.length!=0 && isAllowlistedURL(url));
+  let allowlistUrl = (extensionSettings.allowlist.length!=0 && isAllowlistedURL(url));
+  let handleUrl = isGoogleURL(url) || allowlistUrl;
 
   if (handleUrl && extensionSettings.whitelist.length!=0 && isWhitelistedURL(url)) {
     handleUrl = false;
@@ -378,6 +379,11 @@ function shouldContainInto (url, tab) {
     if (tab.cookieStoreId !== googleCookieStoreId) {
       if (tab.cookieStoreId !== "firefox-default" && extensionSettings.dont_override_containers) {
         // Tab is already in a container, the user doesn't want us to override containers
+        return false;
+      }
+
+      if (allowlistUrl) {
+        // Don't force an allowlisted URL to be in the Google Container
         return false;
       }
 
