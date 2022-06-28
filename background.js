@@ -43,7 +43,7 @@ GOOGLE_DOMAINS = GOOGLE_DOMAINS.concat(GOOGLE_INTL_DOMAINS)
   .concat(GOOGLE_SERVICES).concat(YOUTUBE_DOMAINS).concat(BLOGSPOT_DOMAINS).concat(ALPHABET_DOMAINS)
   .concat(DEVELOPER_DOMAINS).concat(AD_DOMAINS);
 
-const MAC_ADDON_ID = "@testpilot-containers";
+const MAC_ADDON_ID = "@aaronkollasch-containers";
 
 let macAddonEnabled = false;
 let googleCookieStoreId = null;
