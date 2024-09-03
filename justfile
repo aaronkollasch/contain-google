@@ -4,7 +4,7 @@ run:
 
 sign:
     #!/usr/bin/env bash
-    set -euxo pipefail
+    set -euo pipefail
     if [ -z ${WEB_EXT_API_KEY+x} ]; then
         read -s -p "WEB_EXT_API_KEY: " WEB_EXT_API_KEY
         echo
@@ -13,4 +13,4 @@ sign:
         read -s -p "WEB_EXT_API_SECRET: " WEB_EXT_API_SECRET
         echo
     fi
-    web-ext sign --api-key $WEB_EXT_API_KEY --api-secret $WEB_EXT_API_SECRET
+    web-ext sign --channel unlisted --api-key $WEB_EXT_API_KEY --api-secret $WEB_EXT_API_SECRET
